@@ -1,5 +1,5 @@
 //Will be responsible for actual game- guesses by phone and where we let phone know if guess is too high or low
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { View, Text, StyleSheet, Alert } from "react-native";
 import Title from "../components/ui/Title";
 import NumberContainer from "../components/game/NumberContainer";
@@ -18,20 +18,27 @@ function generateRandomBetween(min, max, exclude) {
 let minBoundary = 1;
 let maxBoundary = 100;
 
-function GameScreen({ userNumber }) {
+function GameScreen({ userNumber, onGameOver }) {
   const initialGuess = generateRandomBetween(
-    minBoundary,
-    maxBoundary,
+    1,
+    100,
     userNumber
   );
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
+
+  useEffect(() => {
+    if (currentGuess === userNumber) {
+      onGameOver();
+    }
+  }, [currentGuess, userNumber, onGameOver])
+  //When those 3 above change, this effect will be executed and will check if game is over and if it is ongameover is called
 
   function nextGuessHandler(direction) {
     if (
       (direction === "lower" && currentGuess < userNumber) ||
       (direction === "greater" && currentGuess > userNumber)
     ) {
-      Alert.alert('Don't lie!, 'You know this is wrong..', [
+      Alert.alert("Don't lie!", "You know this is wrong..", [
         { text: 'Sorry!', style: 'cancel'}
       ]);
       return;
