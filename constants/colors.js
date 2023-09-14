@@ -1,9 +1,9 @@
 const Colors = {
-    primary400: "#C2BBF0",
-    primary500: "#9d91e7",
-    primary600: "#6552d9",
-    accent500: "#FFFDD0",
-    accent800: "#ddb52f",
+    primary400: "#9D91E7",
+    primary500: "#7867DE",
+    primary600: "#432DCB",
+    accent500: "#FFFB9D",
+    accent800: "#BB971E",
     plain: "white",
 }
 
