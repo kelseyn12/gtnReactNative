@@ -14,7 +14,7 @@ export default function App() {
   const [ userNumber, setUserNumer ] = useState();
   const [ gameIsOver, setGameIsOver ] = useState(true);
 
-  const [fontsLoaded] useFonts({
+  const [fontsLoaded] = useFonts({
     'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
     'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf'),
   });
