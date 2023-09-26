@@ -1,6 +1,6 @@
 //Will be responsible for actual game- guesses by phone and where we let phone know if guess is too high or low
 import { useEffect, useState } from "react";
-import { View, StyleSheet, Alert, Text } from "react-native";
+import { View, StyleSheet, Alert, Text, FlatList } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 
 import Title from "../components/ui/Title";
@@ -83,7 +83,8 @@ function GameScreen({ userNumber, onGameOver }) {
         </View>
       </Card>
       <View>
-        {guessRounds.map(guessRound => <Text key={guessRound}>{guessRound}</Text>)}
+        {/* {guessRounds.map(guessRound => <Text key={guessRound}>{guessRound}</Text>)} */}
+        <FlatList data={guessRounds} renderItem={(itemData) => <Text>{itemData.item}</Text>} keyExtractor={(item) => item} />
       </View>
     </View>
   );
