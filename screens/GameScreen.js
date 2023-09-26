@@ -33,6 +33,11 @@ function GameScreen({ userNumber, onGameOver }) {
   }, [currentGuess, userNumber, onGameOver]);
   //When those 3 above change, this effect will be executed and will check if game is over and if it is ongameover is called
 
+  useEffect(() => {
+    minBoundary = 1;
+    maxBoundary = 100;
+  }, []);
+
   function nextGuessHandler(direction) {
     if (
       (direction === "lower" && currentGuess < userNumber) ||
