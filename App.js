@@ -3,6 +3,7 @@ import { StyleSheet, ImageBackground, SafeAreaView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
+import { StatusBar } from 'expo-status-bar';
 
 import StartGameScreen from "./screens/StartGameScreen";
 import GameScreen from './screens/GameScreen';
@@ -52,6 +53,8 @@ if(gameIsOver && userNumber) {
 
 
   return (
+    <>
+    <StatusBar style='light' />
     <LinearGradient colors={[Colors.primary400, Colors.accent800]} style={styles.rootScreen}>
       <ImageBackground
         source={require("./assets/images/background.png")}
@@ -63,7 +66,8 @@ if(gameIsOver && userNumber) {
         {screen}
         </SafeAreaView>
       </ImageBackground>
-    </LinearGradient>
+      </LinearGradient>
+      </>
   );
 }
 
