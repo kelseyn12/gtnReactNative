@@ -12,7 +12,7 @@ import Colors from './constants/colors';
 
 
 export default function App() {
-  const [ userNumber, setUserNumer ] = useState();
+  const [ userNumber, setUserNumber ] = useState();
   const [ gameIsOver, setGameIsOver ] = useState(true);
   const [ guessRounds, setGuessRounds ] = useState(0);
 
@@ -36,7 +36,7 @@ function gameOverHandler(numberOfRounds) {
 }
 
 function startNewGameHandler() {
-  setUserNumer(null);
+  setUserNumber(null);
   setGuessRounds(0);
 }
 
